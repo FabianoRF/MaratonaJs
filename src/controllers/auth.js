@@ -8,7 +8,7 @@ router.get('/sign-in', (req, res)=>{
 
 //rota para cadastro
 router.get('/sign-up', (req, res)=>{
-    return res.json('Sign-in')
+    return res.json('Sign-up')
 })
 
 module.exports=router

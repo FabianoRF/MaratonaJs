@@ -1,0 +1,16 @@
+docs: https://sequelize.org
+
+Sequelize com mysql:
+
+    lembrar de configurar o .env, colocar a senha e criar a table previamente
+
+Comandos:
+
+instalar o sequelize: 
+- npm install --save sequelize
+cli pra sequelize: 
+- npx sequelize-cli init:models -> cria os modelos para facilitar, cada model iniciado é adicionado ao sequelize
+- npx sequelize-cli init:config -> inicia a conf do sequelize, onde contem os dados do banco(colocar no gitIgnore)
+
+- npm install dotenv -> instala o biblio que possibila criar o .env
+- npm install --save mysql2 -> instala o driver do sql pro sequelize
