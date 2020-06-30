@@ -1,13 +1,16 @@
 const express=require('express')
 const db = require('./models')
 
+const response = require('./middlewares/response')
 const authController=require('./controllers/auth')
 
 const app= express()
 
+app.use(response)
+
 //midlewares para aceitar os bodys
 app.use(express.json())
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false }))
 
 
 
