@@ -17,17 +17,18 @@ router.get('/sign-in', (req, res)=>{
 //rota para cadastro
 router.get('/sign-up', async (req, res)=>{
 
-    const email='fabiano@teste.com'
-    const password = '123456'
+    const { email, password } = req.body
+
+    const account = await Account.findOne({where: {email}})
+    if(account) return res.json('Account already exists')//caso já exista
+
 
     const hash=bcrypt.hashSync(password, saltRounds)
-
-
     const resul= await Account.create({email, password: hash})
     
 
 
-    return res.json('Sign-up')
+    return res.json({ email, password })
 })
 
 module.exports=router

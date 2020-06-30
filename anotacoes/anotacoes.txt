@@ -3,6 +3,7 @@ docs: https://sequelize.org
 Sequelize com mysql:
 
     lembrar de configurar o .env, colocar a senha e criar a table previamente
+    -> findOne({where: {email}}) encontra o conteudo de um campo
 
 Comandos:
 
@@ -14,3 +15,12 @@ cli pra sequelize:
 
 - npm install dotenv -> instala o biblio que possibila criar o .env
 - npm install --save mysql2 -> instala o driver do sql pro sequelize
+
+instalar a bilio para criptografar senhas, bcrypt
+    -> para usa-la é bem simples e a mesma pode receber como param um round(criptografado quantas vezes vc disser) ou um salt(criptografia mais uma string fornecida)
+
+- npm install bcrypt 
+
+extras:
+
+rest client: plugin que faz a função do insomnia e postman 
