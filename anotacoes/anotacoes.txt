@@ -21,6 +21,8 @@ instalar a bilio para criptografar senhas, bcrypt
 
 - npm install bcrypt 
 
+-npm install @hapi/joi -> biblio para validação docs -> https://hapi.dev/module/joi/
+
 extras:
 
 rest client: plugin que faz a função do insomnia e postman 
