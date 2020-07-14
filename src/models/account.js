@@ -11,9 +11,10 @@ module.exports= (sequelize, DataTypes)=>{
         }
     })
 
-    Account.prototype.toJSON = function(){//remove o camppo de senha para nap retornar no json a senha(por segurança)
+    Account.prototype.toJSON = function() {//remove o campo de senha para nap retornar no json a senha(por segurança)
         const values = {...this.get()}
         delete values.password
+        return values
     }
 
     return Account

@@ -8,7 +8,6 @@ const router = express.Router()
 
 const saltRounds=10; 
 
-
 //rota para autenticacao
 router.get('/sign-in', (req, res)=>{
     return res.jsonOK(null)
@@ -16,17 +15,17 @@ router.get('/sign-in', (req, res)=>{
 
 //rota para cadastro
 router.get('/sign-up', accountSignUp, async (req, res)=>{
-
     const { email, password } = req.body
     
 
     const account = await Account.findOne({ where: {email} })
-    if(account) return res.jsonBadRequest(getMessage('acount.signup.email_exists'))//caso já exista
+    if(account) return res.jsonBadRequest(getMessage('account.SignUp.email_exists'))//caso já exista
 
     const hash = bcrypt.hashSync(password, saltRounds)
     const newAccount = await Account.create({email, password: hash})
+
     
-    return res.jsonOK(newAccount.dataValues, getMessage('acount.signup.success'));
+    return res.jsonOK(newAccount, getMessage('account.SignUp.success'));
 
 })
 

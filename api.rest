@@ -1,0 +1,15 @@
+@baseUrl= http://localhost:3333
+
+@contentType = application/json
+
+### Create a Account
+
+GET {{baseUrl}}/auth/sign-up
+Content-Type:  {{contentType}}
+
+{
+    "email": "fabiano222@reis.com",
+    "password": "123456",
+    "password_confirmation": "123456"
+    
+}   
