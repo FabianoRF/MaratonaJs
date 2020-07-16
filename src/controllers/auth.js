@@ -24,6 +24,7 @@ router.post('/sign-in', accountSignIn, async (req, res)=>{
     const token = generateJwt({id: account.id})
     const refreshToken = generateRefreshJwt({id: account.id})
 
+    console.log(token)
     return res.jsonOK(account, getMessage('response.json_ok'), {token, refreshToken})
 })
 

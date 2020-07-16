@@ -5,6 +5,18 @@ Sequelize com mysql:
     lembrar de configurar o .env, colocar a senha e criar a table previamente
     -> findOne({where: {email}}) encontra o conteudo de um campo
 
+JSON Web Token (JWT)
+
+    -usado para criar token de autenticação
+    -atraves do metodo sign vc assina e cria um jwt com os parametros payload(corpo), chave, opções
+    - pe interressante criar as chaves no dotenv
+    - No projeto é criado um midleware que verifica o token do usuario e retorna seu id
+
+    - Todo token que vier no authorization do header da requisição virá com o padrao: 'Bearer (nome do' 
+
+
+npm install --save jsonwebtoken
+
 Comandos:
 
 instalar o sequelize: 

@@ -2,6 +2,8 @@
 
 @contentType = application/json
 
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzgsImlhdCI6MTU5NDkxNjQ3MywiZXhwIjoxNTk0OTE4MjczfQ.Wk1ULGIi2jBlBJPkK-F60ZXrTYpEVTCR30Emp1RQ2Js
+
 ### Create a Account
 
 POST {{baseUrl}}/auth/sign-up
@@ -28,6 +30,7 @@ Content-Type:  {{contentType}}
 
 GET {{baseUrl}}/link
 Content-Type:  {{contentType}}
+Authorization: Bearer {{token}}
  
 
 ### Create Link
@@ -36,18 +39,29 @@ POST {{baseUrl}}/link
 Content-Type:  {{contentType}}
 
 {
-    "label": "Meu site",
-    "url": "https://broga.com",
+    "label": "Meu site do fabiano 2",
+    "url": "https://fabiano.com",
     "isSocial": false
 }
  
+### get a Link by id
+ 
+GET {{baseUrl}}/link/10
+Content-Type:  {{contentType}}
 
-### Edita Link
 
-PUT {{baseUrl}}/link
+### Update a Link
+
+PUT {{baseUrl}}/link/8
 Content-Type:  {{contentType}}
 
 {
-    "label": "Meu novo site"
+    "label": "Meu novo site",
+    "isSocial": true,
+    "url": "facebook.com"
 }
  
+### Delete a link
+
+DELETE {{baseUrl}}/link/10
+Content-Type:  {{contentType}}
