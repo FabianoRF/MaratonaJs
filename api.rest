@@ -4,6 +4,7 @@
 
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzgsImlhdCI6MTU5NDkxNjQ3MywiZXhwIjoxNTk0OTE4MjczfQ.Wk1ULGIi2jBlBJPkK-F60ZXrTYpEVTCR30Emp1RQ2Js
 
+@refreshToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzgsInZlcnNpb24iOjAsImlhdCI6MTU5NDkyNDIwMiwiZXhwIjoxNTk3NTE2MjAyfQ.uqH_Rxsr7XDEkICDpIjCNp9-48SGZ9mHnZMSGj2X5LU
 ### Create a Account
 
 POST {{baseUrl}}/auth/sign-up
@@ -25,6 +26,17 @@ Content-Type:  {{contentType}}
     "email": "fabiano@reis.com",
     "password": "123456"
 }   
+
+### Refresh
+
+POST {{baseUrl}}/auth/sign-in
+Content-Type:  {{contentType}}
+Authorization: Bearer {{refreshToken}}
+
+{
+    "email": "fabiano@reis.com",
+    "password": "123456"
+}  
 
 ### List links
 

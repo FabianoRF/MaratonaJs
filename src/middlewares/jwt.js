@@ -1,17 +1,17 @@
-const {verifyJwt}= require('../helpers/jwt')
+const {verifyJwt, getTokenFromHeaders}= require('../helpers/jwt')
 
 const checkJwt = (req, res, next)=>{
     // /auth/sign-in
     // /auth/sign-up
     const {url: path} =req;//retorna a rota que se encontra
 
-    const excludedPaths = ['/auth/sign-in', '/auth/sign-up']
+    const excludedPaths = ['/auth/sign-in', '/auth/sign-up', '/auth/refresh']
     const isExcluded = !!excludedPaths.find( p => p.startsWith(path))//verifica se inicia com o o path desejado, o !! tranforma em boll
 
     if(isExcluded) return next()//nao verifica rotas desnecessárias
 
-    let token = req.headers['authorization']
-    token= token ? token.slice(7, token.length) : null//tira o bearer
+
+    const token = getTokenFromHeaders(req.headers)
 
     if(!token){
         return res.jsonUnauthorized(null, 'Invalid token')

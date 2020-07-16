@@ -10,7 +10,7 @@ const STATUS_CODE_SERVER_ERROR= 500
 
 const jsonOK= function (data, message, metadata){
     const status = STATUS_CODE_OK
-    message=(message) ? message : getMessage('response.json_OK') 
+    message=(message) ? message : getMessage('response.json_ok') 
     metadata=(metadata) ? metadata : {} 
 
     this.status(status);
