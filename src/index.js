@@ -30,6 +30,3 @@ db.sequelize.sync().then(()=>{//retorna uma promisse, agr so inicia o servidor d
         console.log("listennig on board 3333")
     })
 })
-
-
-
