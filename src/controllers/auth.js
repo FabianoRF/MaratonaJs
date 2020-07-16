@@ -22,9 +22,8 @@ router.post('/sign-in', accountSignIn, async (req, res)=>{
 
     //token que serão passados como metadados
     const token = generateJwt({id: account.id})
-    const refreshToken = generateRefreshJwt({id: account.id})
+    const refreshToken = generateRefreshJwt({id: account.id, version: account.jwtVersion})
 
-    console.log(token)
     return res.jsonOK(account, getMessage('response.json_ok'), {token, refreshToken})
 })
 
@@ -42,7 +41,7 @@ router.post('/sign-up', accountSignUp, async (req, res)=>{
 
     //token que serão passados como metadados
     const token = generateJwt({id: newAccount.id})
-    const refreshToken = generateRefreshJwt({id: newAccount.id})
+    const refreshToken = generateRefreshJwt({id: newAccount.id, version: newAccount.jwtVersion})
 
     
     return res.jsonOK(newAccount, getMessage('account.SignUp.success'), {token, refreshToken});

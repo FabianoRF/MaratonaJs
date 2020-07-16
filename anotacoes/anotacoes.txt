@@ -4,6 +4,10 @@ Sequelize com mysql:
 
     lembrar de configurar o .env, colocar a senha e criar a table previamente
     -> findOne({where: {email}}) encontra o conteudo de um campo
+    - o arquivo .sequelizerc informa as alterações feitas no sequelize 
+    - npx sequelize-cli migration:create --name add_jwtVersion_to_account -> cria o arquivo migration atraves do sequelize cli
+    - npx sequelize-cli db:migrate -> Roda o migrate
+    - usado sempre que for adicionar algo no banco, que já está criado
 
 JSON Web Token (JWT)
 
@@ -11,8 +15,11 @@ JSON Web Token (JWT)
     -atraves do metodo sign vc assina e cria um jwt com os parametros payload(corpo), chave, opções
     - pe interressante criar as chaves no dotenv
     - No projeto é criado um midleware que verifica o token do usuario e retorna seu id
+    - no site jwt.io é possivel ver um debug para verificar tokens
 
-    - Todo token que vier no authorization do header da requisição virá com o padrao: 'Bearer (nome do' 
+    - Todo token que vier no authorization do header da requisição virá com o padrao: 'Bearer + token'
+    - o refresh token se trata de um token que deixa com o usuario para nao expirar tao rapido, portanto nele contem o dado de versão 
+
 
 
 npm install --save jsonwebtoken
@@ -38,3 +45,5 @@ instalar a bilio para criptografar senhas, bcrypt
 extras:
 
 rest client: plugin que faz a função do insomnia e postman 
+- funçao nativa find percorre o array, para procurar algo, e o startWith() verifica o inicio de algo
+- !! - se uma reposta nao for booleana, para tranforma-la basta usar de ! para negar e ! para tornar verdadeiro
